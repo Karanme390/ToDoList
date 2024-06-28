@@ -1,6 +1,6 @@
 import { useState } from "react";
 // import 'bootstrap/dist/css/bootstrap.min.css';
-import './ToDolist.css'
+import './ToDolist.css';
 const ToDolist = () => {
     let [task,setTask] = useState("");  //array destructuring
     let [taskArray,setTaskArray] = useState([]);
@@ -9,18 +9,20 @@ const ToDolist = () => {
         setTaskArray([...taskArray,task]);
         setTask(taskArray);
     }
-
+    let onKeyDownHandler = (event) => {
+        if (event.key === "Enter") {
+            clickHandler();
+        }
+    }
 
     let onChangeHandler=(event)=>{
-        console.log(event.target.value);
+        // console.log(event.target.value);
         setTask(event.target.value)
     }
     return ( 
         
         <>
-        .<div
-            class="container"
-        >
+        <div class="container">
             <div class="mb-3">
             <label htmlFor="" class="form-label">Name</label>
             <input
@@ -29,8 +31,10 @@ const ToDolist = () => {
                 name=""
                 id=""
                 aria-describedby="helpId"
-                placeholder=""
+                placeholder="Enter your task"
+                value={task}
                 onChange={onChangeHandler}
+                onKeyDown={onKeyDownHandler}
         
         />
          <button onClick={clickHandler}>Add Task</button><br></br><br/>
