@@ -18,7 +18,10 @@ const ToDolist = () => {
     return ( 
         
         <>
-        <div class="mb-3">
+        .<div
+            class="container"
+        >
+            <div class="mb-3">
             <label htmlFor="" class="form-label">Name</label>
             <input
                 type="text"
@@ -28,10 +31,9 @@ const ToDolist = () => {
                 aria-describedby="helpId"
                 placeholder=""
                 onChange={onChangeHandler}
-            />
-        </div>
         
-        <button onClick={clickHandler}>Add Task</button><br></br><br/>
+        />
+         <button onClick={clickHandler}>Add Task</button><br></br><br/>
         <ol>
         {task}
         {
@@ -40,6 +42,13 @@ const ToDolist = () => {
             })
         }
         </ol>
+        </div>
+
+        </div>
+        
+        
+        
+       
         </>
      );
 }
